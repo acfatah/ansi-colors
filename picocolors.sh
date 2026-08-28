@@ -7,7 +7,7 @@
 PC_IS_COLOR_SUPPORTED=0
 
 _pc_contains_arg() {
-  local needle="$1"
+  local needle="$1" arg
   shift
   for arg in "$@"; do
     [[ "$arg" == "$needle" ]] && return 0
