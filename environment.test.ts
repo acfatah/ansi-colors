@@ -5,7 +5,7 @@ import { dirname } from "node:path"
 import { fileURLToPath } from "node:url"
 import { Script, createContext } from "node:vm"
 
-const moduleUrl = new URL("./index.ts", import.meta.url)
+const moduleUrl = new URL("./picocolors.ts", import.meta.url)
 const filename = fileURLToPath(moduleUrl)
 const nodeRequire = createRequire(import.meta.url)
 const source = readFileSync(moduleUrl, "utf-8")

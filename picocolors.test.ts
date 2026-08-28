@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { test } from "bun:test"
 import assert from "node:assert"
-import { usePicocolors } from "./index.ts"
+import { usePicocolors } from "./picocolors.ts"
 
 const fixtures = {
   reset: ["\x1b[0m", "\x1b[0m"],
