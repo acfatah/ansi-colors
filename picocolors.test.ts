@@ -51,7 +51,25 @@ const fixtures = {
   bgWhiteBright: ["\x1b[107m", "\x1b[49m"],
 } as const
 
+// `usePicocolors` reads the environment on each call, and `bun test` runs
+// without a TTY. Pin the environment across that one call so the fixtures
+// below hold no matter what the developer happens to have exported.
+const ambient = {
+  FORCE_COLOR: process.env.FORCE_COLOR,
+  NO_COLOR: process.env.NO_COLOR,
+}
+process.env.FORCE_COLOR = "1"
+delete process.env.NO_COLOR
+
 const pc = usePicocolors()
+
+for (const [key, value] of Object.entries(ambient)) {
+  if (value === undefined) {
+    delete process.env[key]
+  } else {
+    process.env[key] = value
+  }
+}
 
 test("color matching", () => {
   for (let format in fixtures) {

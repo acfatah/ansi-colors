@@ -12,7 +12,6 @@ const source = readFileSync(moduleUrl, "utf-8")
 const transpiler = new Bun.Transpiler({ loader: "ts" })
 const compiledSource = transformToCommonJS(transpiler.transformSync(source))
 const compiledScript = new Script(compiledSource, { filename })
-const CI = process.env.CI
 const COLORED_RED = "\x1B[31mtext\x1B[39m"
 
 test("ci server", () => {
@@ -34,7 +33,7 @@ test("env NO_COLOR", () => {
 })
 
 test("env NO_COLOR empty", () => {
-  const colors = initModuleEnv({ env: { NO_COLOR: "", CI } })
+  const colors = initModuleEnv({ env: { NO_COLOR: "", CI: "1" } })
   expect(colors.isColorSupported).toBe(true)
   expect(colors.red("text")).toBe(COLORED_RED)
 })
