@@ -53,51 +53,12 @@ _pc_detect_color_support() {
   PC_IS_COLOR_SUPPORTED=0
 }
 
-_pc__index_of() {
-  local haystack="$1"
-  local needle="$2"
-  local haystack_len=${#haystack}
-  local needle_len=${#needle}
-
-  if (( needle_len == 0 )); then
-    printf '%d' 0
-    return
-  fi
-
-  local i=0
-  local limit=$((haystack_len - needle_len))
-  while (( i <= limit )); do
-    if [[ "${haystack:i:needle_len}" == "$needle" ]]; then
-      printf '%d' "$i"
-      return
-    fi
-    ((i++))
-  done
-
-  printf '%d' -1
-}
-
 _pc__replace_close() {
   local string="$1"
   local close="$2"
   local replace="$3"
-  local result=""
-  local close_len=${#close}
-  local cursor=0
 
-  while true; do
-    local substring="${string:cursor}"
-    local index
-    index=$(_pc__index_of "$substring" "$close")
-    if (( index < 0 )); then
-      result+="$substring"
-      break
-    fi
-    result+="${substring:0:index}$replace"
-    cursor=$((cursor + index + close_len))
-  done
-
-  printf '%s' "$result"
+  printf '%s' "${string//"$close"/"$replace"}"
 }
 
 _pc__apply() {
