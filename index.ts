@@ -1,1 +1,1 @@
-export { usePicocolors } from "./picocolors.ts"
+export { usePicocolors } from "./colors.ts"

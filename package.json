@@ -1,5 +1,5 @@
 {
-  "name": "ts-picocolor",
+  "name": "ansi-colors",
   "module": "index.ts",
   "type": "module",
   "private": true,

@@ -1,6 +1,10 @@
 # Picocolors Implementation in TypeScript and Bash
 
-Zero-dependency implementation of [picocolors][1] in TypeScript.
+Zero-dependency implementation of [picocolors][1] in TypeScript and Bash.
+
+> [!NOTE]
+> Unrelated to the `ansi-colors` npm package. This is a reimplementation of
+> picocolors and keeps the picocolors API.
 
 I love the original picocolors library by Alexey Raspopov, but in a certain case,
 dependency is not an option. Therefore, I reimplement it so it doesn't rely on any
@@ -12,12 +16,12 @@ external dependencies while providing the same functionality.
 
 ```bash
 # See: https://github.com/nrjdalal/gitpick#-quick-usage
-bunx gitpick acfatah/ts-picocolors/tree/main/picocolors.sh
+bunx gitpick acfatah/ansi-colors/tree/main/colors.sh
 ```
 
 ```bash
-# Source the `picocolors.sh` file to define the `PC_*` functions
-source ./picocolors.sh
+# Source the `colors.sh` file to define the `PC_*` functions
+source ./colors.sh
 
 echo "$(PC_green "How are $(PC_italic "you") doing?")"
 ```
@@ -52,12 +56,12 @@ or `0`.
 
 ```bash
 # See: https://github.com/nrjdalal/gitpick#-quick-usage
-bunx gitpick acfatah/ts-picocolors/tree/main/picocolors.ts
+bunx gitpick acfatah/ansi-colors/tree/main/colors.ts
 ```
 
 ```ts
-// Import the `usePicocolors` function from the `picocolors.ts` file
-import { usePicocolors } from './picocolors.ts'
+// Import the `usePicocolors` function from the `colors.ts` file
+import { usePicocolors } from './colors.ts'
 
 const pc = usePicocolors()
 

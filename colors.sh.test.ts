@@ -2,7 +2,7 @@ import { expect, test } from "bun:test"
 import { spawnSync } from "node:child_process"
 import { fileURLToPath } from "node:url"
 
-const scriptPath = fileURLToPath(new URL("./picocolors.sh", import.meta.url))
+const scriptPath = fileURLToPath(new URL("./colors.sh", import.meta.url))
 const quotedScriptPath = quote(scriptPath)
 
 const fixtures = {
