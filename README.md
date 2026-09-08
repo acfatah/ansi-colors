@@ -15,8 +15,7 @@ external dependencies while providing the same functionality.
 ### Bash
 
 ```bash
-# See: https://github.com/nrjdalal/gitpick#-quick-usage
-bunx gitpick acfatah/ansi-colors/tree/main/colors.sh
+curl -fsSLO https://raw.githubusercontent.com/acfatah/ansi-colors/main/colors.sh
 ```
 
 ```bash
